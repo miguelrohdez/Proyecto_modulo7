@@ -10,8 +10,7 @@
 /*Estilo Navegacion */
 body{
    
-    color: black;
-    opacity: .95;
+    color: darkgrey;
 }
 
 a{
@@ -21,6 +20,11 @@ a{
 ul{
     list-style: none;
 }
+
+#logo{
+	width: 6em;
+}
+
 .container-menu{
     width: 95%;
     margin: auto;
@@ -50,17 +54,23 @@ ul{
 }
 
 .logoNav{
-    width: 100px;
-    border-style: solid;
-    padding: 0px 50px;
+    width: 6em;
+    padding: 0px 10px 0px 10px ;
 }
 
 .nav-sesion{
-    
+    color: red;
+	padding: 2px;
+	margin: 3px;
+	display: flex;
+    align-items: center;
+}
+.nav-sesion a{
+	padding: 0px 10px 0px 10px;
 }
 /*Seccion de contenido*/
 .container {
-	background-color: #9C9696;
+	background-color: #d4d0d0;
 }
 
 .espacio5{
@@ -119,6 +129,10 @@ ul{
 	text-shadow:1px 1px gray ;
 }
 
+.text-footer{
+	text-align: center;
+	font-size: 1.2em;
+}
 
 
 
