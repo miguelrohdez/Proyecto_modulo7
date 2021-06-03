@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Recordando HTML</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		
+		
+	</head>
+	<body>
+		<!-- Aqui  empieza la barra de menus y logo -->
+		<div class="container-menu">
+			<nav class="nav-main">
+				<a class="logoNav" href="./index.html">
+					<img src="#" alt="Imagen Logo">
+				</a>
+				<ul class="nav-menu">
+					<li>
+						<a href="./index.html">Inicio</a>
+					</li>
+					<li>
+						<a href="./interface.html">Dispositivos</a>
+					</li>
+					<li>
+						<a href="#">Precios</a>
+					</li>
+					<li>
+						<a href="#">Testimonios</a>
+					</li>
+					<li>
+						<a href="#">Contacto</a>
+					</li>
+				</ul>
+				<ul class="nav-sesion">
+					<li>
+						<a href="">Entrar</a>
+					</li>
+					<li>
+						<a href="./registro.html">Registrarse</a>
+					</li>
+				</ul>
+			</nav>
+			<hr>
+		</div>
+			
+		<!-- Aqui  empieza la caja principal -->
+		<div class="container">
+			<header>
+				<h1 class="tituloPrincipal">INICIO</h1>
+			</header>	
+		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
+		<div class="espacio5"></div>
+		<div class="lateralIzq">
+			<h3 class="texto-centrado">Dispositivo(s)</h3>
+			<div class="datos-dispos">
+				<label for="idDispo" class="text-label">ID:</label>
+					<span id="idDispositivo">3516589432</span><br>
+					<form id="form-mapa">
+						<label for="posLatitud" class="text-label">Latitud: </label>
+						<input type="text" id="poslatitud"/><br>
+						<label for="posLongitud" class="text-label">Longitud: </label>
+						<input type="text" id="poslongitud"/><br>
+						<input type="submit" value="Actualizar"/>
+					</form>
+				<label for="datos1" class="text-label">Motor encendido:</label>
+					<span id="dato1">TRUE</span><br>
+				 <hr>
+			</div>
+		</div>
+	<!-- Aqui  la seccion del mapa -->
+		<div class="mapa-contenedor" id="mapa">	</div>
+		<div class="clear"></div>
+		</div>
+		<footer>
+			<h1 class="text-footer">Pekas N' M&K</h1>
+		</footer>
+	</body>
+	<script src="js/main.js" ></script>
+	<script src="js/mapa.js" ></script>
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUnDC9o2ZiEwPVocuzLnqvVDFAXfJc5D0&callback=initMap&libraries=&v=weekly"
+	  async
+    ></script>  
+</html>
