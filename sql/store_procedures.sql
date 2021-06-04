@@ -4,7 +4,7 @@
 -- ***************************************************************
 
 --Procedimiento para ingresar a un nuevo cliente
-CREATE PROCEDURE SP_AltaEmpleado
+CREATE PROCEDURE SP_AltaCliente
 	@nombre VARCHAR(100),
 	@aPaterno VARCHAR(100),
 	@aMaterno VARCHAR(100),
