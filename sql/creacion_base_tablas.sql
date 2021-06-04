@@ -27,6 +27,7 @@ CREATE TABLE menu(
     menu_precio DECIMAL(8,2) NOT NULL,
     menu_tipo VARCHAR(100) NOT NULL,
     menu_descripcion VARCHAR(100) NOT NULL,
+    menu_imagen VARCHAR(255),
     PRIMARY KEY(codigo)
     );
 /* corregir para hacer una sola 
