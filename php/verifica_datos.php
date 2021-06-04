@@ -20,9 +20,12 @@
             echo $conexion -> fied_count;
             if ($registros > 0) {
                 echo "Es valido";
+                session_start();
+                $_SESSION["usuario"]=$_POST["txt_email"];
+                //header("location:carrito.php"); NO SE A QUE PAGINA MARDAR AL CLIENTE REGISTRADO
             }else{
-
-                header("location:login.html"); //Posiblemente agrege una loginErro.html con el mensaje de error
+                echo "Incorrecto";
+                header("location:../login.html"); //Posiblemente agrege una loginErro.html con el mensaje de error
             }
             $conexion -> close();
         }            
