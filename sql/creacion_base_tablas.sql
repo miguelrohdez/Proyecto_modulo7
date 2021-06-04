@@ -34,15 +34,15 @@ CREATE TABLE pedido(
     NoPedido INT(11) AUTO_INCREMENT,
     pedido_fecha DATE NOT NULL,
     cliente INT(11) NOT NULL,
-    PRIMARY KEY (NumFactura),
+    PRIMARY KEY (NoPedido),
     FOREIGN KEY (cliente)
 	    REFERENCES cliente(NoCliente)
 );
 
-CREATE pedidoDetalle(
+CREATE TABLE pedidoDetalle(
     ticket INT(11) AUTO_INCREMENT,
     producto INT(11),
-    cantidad INT(5,)
+    cantidad INT(5),
     total DECIMAL(8,2),
     pedido INT(11),
     PRIMARY KEY(ticket),
