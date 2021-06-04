@@ -1,0 +1,6 @@
+Ingresar, registrar, actualizar datos, cerrar sesion, desplegar Menu --- MIguel
+Procedimiento de actualizar usuario, eliminar --lalo
+Procedimiento de ingresar, actualizar y eliminar producto, desde mysql --Alex
+Carrito de compra, corregir tablas, agregar varios de mismo producto --Julio y Carlos
+
+

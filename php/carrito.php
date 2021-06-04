@@ -57,7 +57,9 @@
 			</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
 		<div class="caja principal">
-
+					<!-- DESCRICOPN PRODUCTO COMPRADO
+						BOTON FINALIZAR(PAGINA PEDIDOFINAL)  O REGRESAR(mENU O PROMOCIONES) 
+					-->
 		</div>
 		
 		

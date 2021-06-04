@@ -29,7 +29,7 @@ CREATE TABLE menu(
     menu_descripcion VARCHAR(100) NOT NULL,
     PRIMARY KEY(codigo)
     );
-
+/* corregir para hacer una sola 
 CREATE TABLE pedido(
     NoPedido INT(11) AUTO_INCREMENT,
     pedido_fecha DATE NOT NULL,
@@ -51,3 +51,4 @@ CREATE TABLE pedidoDetalle(
     FOREIGN KEY (pedido)
         REFERENCES pedido(NoPedido)
 );
+*/
