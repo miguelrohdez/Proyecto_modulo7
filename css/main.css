@@ -133,6 +133,12 @@ ul{
 	text-align: center;
 	font-size: 1.2em;
 }
+.t_login{
+	margin: auto;
+}
+#btn_enviar{
+	text-align: center;
+}
 
 
 

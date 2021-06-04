@@ -15,11 +15,11 @@ CREATE PROCEDURE SP_AltaCliente
 	@fechaNac DATE
 AS
 	--Variables locales
-	DECLARE @contra_cifrada BINARY(255);
-    DECLARE @VECTOR VARCHAR(255);
+	--DECLARE @contra_cifrada BINARY(255);
+    --DECLARE @VECTOR VARCHAR(255);
     --Cifrar la contraseña antes de guardarla en la base de datos
-    SET @VECTOR = SUBSTRING(HEX(@correo),1,50);
-    SET @contra_cifrada = AES_ENCRYPT(@contrasenia,@VECTOR);
+    --SET @VECTOR = SUBSTRING(HEX(@correo),1,50);
+    --SET @contra_cifrada = AES_ENCRYPT(@contrasenia,@VECTOR);
     --SELECT AES_DECRYPT(@pss_enc, @VECTOR);
 
     --InsertandoDatos
@@ -29,3 +29,5 @@ AS
         VALUES (@nombre, @aPaterno, @aMaterno, @direccion, @telefono, @correo,@contraseña, @fechaNac);
 ;
 
+    SET @VECTOR = SUBSTRING(HEX(@correo),1,50);
+    SELECT AES_ENCRYPT(@contrasenia,@VECTOR);
