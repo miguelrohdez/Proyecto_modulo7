@@ -6,7 +6,7 @@
 
 CREATE DATABASE lalos_buger;
 
-USE lalos_buger;
+USE lalos_burger;
 
 CREATE TABLE cliente(
     NoCliente INT(11) AUTO_INCREMENT,
@@ -53,3 +53,15 @@ CREATE TABLE pedidoDetalle(
         REFERENCES pedido(NoPedido)
 );
 */
+
+CREATE TABLE pedidoDetalle(
+    NoPedido INT(11) AUTO_INCREMENT,
+    pedido_fecha DATE NOT NULL,
+    cliente INT(11) NOT NULL,
+    codigo INT (11) NOT NULL,
+    cantidad INT (11) NOT NULL,
+    precioTotal FLOAT NOT NULL,
+    PRIMARY KEY (NoPedido),
+    FOREIGN KEY (cliente) REFERENCES cliente(NoCliente),
+    FOREIGN KEY (codigo) REFERENCES menu(codigo)
+);
