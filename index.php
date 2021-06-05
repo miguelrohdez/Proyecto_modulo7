@@ -11,7 +11,7 @@
 	<body>
 	<!-- Parte que verifica el login -->
 		<?php
-		if (isset($_POST["btn_entrar"])) {
+		if (isset($_POST["btn_entrar"]) or !session_start() ) {
 			
 			require("./php/datos_con.php");
 			$usuario =   $_POST["txt_email"];
