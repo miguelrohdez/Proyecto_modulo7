@@ -32,6 +32,18 @@ AS
     SET @VECTOR = SUBSTRING(HEX(@correo),1,50);
     SELECT AES_ENCRYPT(@contrasenia,@VECTOR);
 
+<<<<<<< HEAD
+
+
+-- Creacion de PS para llenar tabla pedidos
+-- CURDATE()
+CREATE PROCEDURE lb_addPedido ( IN client INT(11),
+                                IN code INT(11),
+                                IN cant INT(11),
+                                IN total FLOAT ) 
+    INSERT INTO pedidoDetalle( NoPedido, pedido_fecha, cliente, codigo, cantidad, precioTotal)
+    VALUES ( "", CURDATE(), client, code, cant, total);
+=======
 --Actualizar los datos del usuario
 CREATE PROCEDURE SP_ActualizarCliente(
 	in sp_NoCliente int(11),
@@ -76,3 +88,4 @@ INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,
 	VALUES (sp_nombre, sp_aPaterno, sp_aMaterno, sp_direccion,sp_correo,sp_contrasenia, sp_telefono, sp_fechaNac);
 ;
 */
+>>>>>>> 3aad1cd00a14be2c744761897211faf103ad7f83
