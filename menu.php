@@ -55,7 +55,7 @@
 					PRECIO AGREGAR(IR A CARRITO) -->
         
         
-
+			<!--	Se inicia form, para enviar datos de pedido -->
             <form method="POST" name = "pedido" Onsubmit = "return Validation(this)" action="/proyecto/php/carrito.php">
 
                 <input type="radio" name="orden" value="1" id="o1">

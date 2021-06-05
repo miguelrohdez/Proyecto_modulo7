@@ -3,4 +3,5 @@
     $db_data = "lalos_buger";
     $db_admin = "root";
     $db_pass = "usbw";
+    //$db_port = 3306;
 ?>
