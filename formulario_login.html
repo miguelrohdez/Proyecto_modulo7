@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <table class="t_registro">
+            <tr>
+                <td>E-mail: </td>
+                <td><input type="text" name="txt_email"></td>
+            </tr>
+            <tr>
+                <td>Contraseña: </td>
+                <td><input type="password" name="txt_contra"></td>
+            </tr>
+            <tr>
+                <td id="btn_enviar" colspan="2"><input  type="submit" name="btn_entrar" value="Ingresar"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

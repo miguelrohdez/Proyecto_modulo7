@@ -105,6 +105,8 @@ ul{
 .tituloPrincipal {
 	text-align: center;
 	text-decoration-style: solid;
+	color: blue;
+	
 }
 
 .texto-centrado {
@@ -135,10 +137,28 @@ ul{
 }
 .t_login{
 	margin: auto;
+	margin-top: 10px;
+	color: black;
 }
-#btn_enviar{
+.t_registro{
+	margin: auto;
+	margin-top: 10px;
+	color: black;
+	border-spacing: 20px;
+    border-collapse: separate;
+}
+
+.btn_registro{
+	padding-top: 3%;
 	text-align: center;
 }
+#img_index{
+	width: 45%;
+	margin-top: 3%;
+}
 
-
-
+h2 {
+	color: black;
+	font-size: 1.5em;
+	text-align: center;
+}
