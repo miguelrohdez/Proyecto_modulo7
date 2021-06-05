@@ -22,11 +22,21 @@
 			}else{
 				$conexion -> set_charset("utf8");
 				$consulta = "SELECT  NoCliente, cliente_nombre FROM cliente WHERE cliente_correo = ? AND cliente_contrasenia = ?";
+				//$consulta ="SELECT  NoCliente, cliente_nombre, cliente_contrasenia FROM cliente WHERE cliente_correo = ";
 				$stmt = $conexion->prepare($consulta);
             	$stmt->bind_param("ss", $usuario, $password);
+				//$stmt->bind_param("s", $usuario);
             	$stmt->execute();	
 				$stmt->bind_result($idUsuario, $nombre_cliente);
-
+				//$stmt->bind_result($idUsuario, $nombre_cliente, $contra_enc);
+				/*if (password_verify($password,$contra_enc)) {
+					$correcto = TRUE;
+				}else{
+					$correcto = FALSE;
+				}
+				if ($correcto) {
+					# code...
+				}*/
 				if ($stmt->fetch() ) {
 					session_start();
 					$_SESSION["usuario"]=$nombre_cliente;
