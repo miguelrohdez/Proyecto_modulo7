@@ -140,7 +140,16 @@ ul{
 	margin-top: 10px;
 	color: black;
 }
-#btn_enviar{
+.t_registro{
+	margin: auto;
+	margin-top: 10px;
+	color: black;
+	border-spacing: 20px;
+    border-collapse: separate;
+}
+
+.btn_registro{
+	padding-top: 3%;
 	text-align: center;
 }
 #img_index{

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="validar_registro.php" method="POST">
+        <table class="t_registro">
+            <tr>
+                <td>Nombre </td><td><input type="text" name="txt_nombre" placeholder="Escribe tu nombre..."></td>
+            </tr>
+            <tr>
+                <td>Apellido Paterno </td><td><input type="text" name="txt_apaterno" placeholder="Escribe tu apellido paterno..."></td>
+            </tr>
+            <tr>
+                <td>Apellido Materno </td><td><input type="text" name="txt_amaterno" placeholder="Escribe tu apellido materno..."></td>
+            </tr>
+            <tr>
+                <td>Dirección </td><td><input type="text" name="txt_dir" placeholder="Escribe tu dirección..."></td>
+            </tr>
+            <tr>
+                <td>Telefono </td><td><input type="tel" name="txt_tel" placeholder="Escribe tu telefono..."></td>
+            </tr>
+            <tr>
+                <td>E-mail </td><td><input type="email" name="txt_email" placeholder="Escribe tu correo..."></td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento </td><td><input type="date" name="txt_fecnac" placeholder="Escribe tu fecha de nacimiento..."></td>
+            </tr>
+            <tr>
+                <td class="btn_registro"><input  type="reset" name="btn_borrar" value="Reiniciar"></td>
+                <td class="btn_registro"><input  type="submit" name="btn_entrar" value="Registrarse"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -21,15 +21,16 @@
 				echo "Fallo la conexion ".$conexion -> connect_errno;
 			}else{
 				$conexion -> set_charset("utf8");
-				$consulta = "SELECT cliente_nombre FROM cliente WHERE cliente_correo = ? AND cliente_contrasenia = ?";
+				$consulta = "SELECT  NoCliente, cliente_nombre FROM cliente WHERE cliente_correo = ? AND cliente_contrasenia = ?";
 				$stmt = $conexion->prepare($consulta);
             	$stmt->bind_param("ss", $usuario, $password);
             	$stmt->execute();	
-				$stmt->bind_result($nombre_cliente);
+				$stmt->bind_result($idUsuario, $nombre_cliente);
 
 				if ($stmt->fetch() ) {
 					session_start();
 					$_SESSION["usuario"]=$nombre_cliente;
+					$_SESSION["id"]=$idUsuario;
 					//header("location:carrito.php"); NO SE A QUE PAGINA MARDAR AL CLIENTE REGISTRADO
 				}else{
 					header("index.php"); //Posiblemente agrege una loginErro.html con el mensaje de error
