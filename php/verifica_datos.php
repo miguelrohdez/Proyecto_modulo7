@@ -22,7 +22,7 @@
                 echo "Es valido";
                 session_start();
                 $_SESSION["usuario"]=$_POST["txt_email"];
-                //header("location:carrito.php"); NO SE A QUE PAGINA MARDAR AL CLIENTE REGISTRADO
+                header("location:menu.html");
             }else{
                 echo "Incorrecto";
                 header("location:../login.html"); //Posiblemente agrege una loginErro.html con el mensaje de error

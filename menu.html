@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Aqui  empieza la barra de menus y logo -->
+		<div class="container-menu">
+			<nav class="nav-main">
+				<a class="logoNav" href="./index.html">
+					<img id="logo" src="img/logoFinal.png" alt="Imagen Logo">
+				</a>
+				<ul class="nav-menu">
+					<li>
+						<a href="#">Inicio</a>
+					</li>
+					<li>
+						<a href="#">Menu</a>
+					</li>
+					<li>
+						<a href="#">Promociones</a>
+					</li>
+					<li>
+						<a href="#">Mi orden</a>
+					</li>
+					<li>
+						<a href="#">Contacto</a>
+					</li>
+				</ul>
+				<ul class="nav-sesion">
+					<li>
+						<a href="#login.html"><button>Entrar</button></a>
+					</li>
+					<li>
+						<a href="#registro.html"><button>Registrarse</button></a>
+					</li>
+				</ul>
+			</nav>
+			<hr>
+		</div>
+			
+		<!-- Aqui  empieza la caja principal -->
+		<div class="container">
+			<header>
+				<h1 class="tituloPrincipal">MENU DE HAMBURGUESAS Y BEBIDAS</h1>
+			</header>	
+		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
+		<div class="caja principal">
+				<!-- COMBOS
+					IMAGEN
+					DESCRI
+					PRECIO AGREGAR(IR A CARRITO) -->
+        
+        
+
+            <form method="POST" name = "pedido" Onsubmit = "return Validation(this)" action="/p7/php/carrito.php">
+
+                <input type="radio" name="orden" value="1" id="o1">
+                <label for="o1">Orden 1</label><br>
+
+                <input type="radio" name="orden" value="2" id="o2">
+                <label for="o2">Orden 2</label><br>
+
+                <input type="radio" name="orden" value="3" id="o3">
+                <label for="o3">Orden 3</label><br>
+
+                <input type="radio" name="orden" value="4" id="o4">
+                <label for="o4">Orden 4</label><br>
+                
+                <br>
+                <input type="number" name="cantidad" min="1" max="50" step="1"  required="required">
+
+                <input type="submit" value="Confirmar" name="confirmar">
+            </form>
+                
+		</div>
+		
+		
+		<div class="clear"></div>
+		</div>
+		<footer>
+			<h1 class="text-footer"> Ⓒ 2021 Lalo's Burger ALGUNOS PRODUCTOS ESTAN SUJETOS A DISPONIBILIDAD</h1>
+		</footer>
+</body>
+</html>
