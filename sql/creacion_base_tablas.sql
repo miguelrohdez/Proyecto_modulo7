@@ -4,7 +4,7 @@
 -- ***************************************************************
 
 
-CREATE DATABASE lalos_buger;
+CREATE DATABASE lalos_burger;
 
 USE lalos_burger;
 
