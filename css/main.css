@@ -73,6 +73,33 @@ ul{
 	background-color: #d4d0d0;
 }
 
+/*carrito*/
+.pedidoActual {
+	background-color: #202020;
+	padding: 2% 2%;
+	margin: 1%;
+	font-size: 20px;
+	text-align: justify;
+
+}
+ /*pedido*/
+.confirmaPedido {
+	background-color: #202020;
+	padding: 1% 5%;
+	margin: 1%;
+	font-size: 20px;
+	text-align:end;
+
+}
+
+.menuH {
+	padding: 1% 5%;
+	margin: 1%;
+	font-size: 20px;
+	text-align:justify;
+
+}
+
 .espacio5{
 	height: 400px ;
 	width: 5%;
