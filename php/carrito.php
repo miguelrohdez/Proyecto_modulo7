@@ -13,11 +13,9 @@
 <html lang="es-ES">
 	<head>
 		<meta charset="utf-8">
-		<title>Lalo's Burgers</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<title>Carrito</title>
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-		
-		
 	</head>
 	<body>
 		<!-- Aqui  empieza la barra de menus y logo -->
@@ -30,12 +28,12 @@
 		
 		<div class="container-menu">
 			<nav class="nav-main">
-				<a class="logoNav" href="#./index.html">
-					<img id="logo" src="img/logoFinal.png" alt="Imagen Logo">
+				<a class="logoNav" href="../index.php">
+					<img id="logo" src="../img/logoFinal.png" alt="Imagen Logo">
 				</a>
 				<ul class="nav-menu">
 					<li>
-						<a href="./index.html">Inicio</a>
+						<a href="../index.php">Inicio</a>
 					</li>
 					<li>
 						<a href="#">Menu</a>
@@ -44,7 +42,7 @@
 						<a href="#">Promociones</a>
 					</li>
 					<li>
-						<a href="#">Mi orden</a>
+						<a href="#">Carrito</a>
 					</li>
 					<li>
 						<a href="#">Contacto</a>
@@ -60,15 +58,16 @@
 				</ul>
 			</nav>
 			<hr>
-		</div>
-			
+		</div>	
+
 		<!-- Aqui  empieza la caja principal -->
 		<div class="container">
 			<header>
 				<h1 class="tituloPrincipal">CONFIRMACION DE PEDIDO</h1>
 			</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
-
+		</div>
+		<div class="pedidoActual">
 		<?php
 			require("datos_con.php");
 			require("listarMenu.php");
@@ -82,7 +81,7 @@
 			if ($conexion -> connect_errno) {
 				echo "Fallo la conexion ".$conexion -> connect_errno;
 			}else{
-				echo 'Conexion exitosa';
+				//echo 'Conexion exitosa';
 				$conexion -> set_charset("utf8");
 				$consulta = "SELECT * FROM menu WHERE  codigo = '$productoID' ";
 
@@ -95,25 +94,27 @@
 				mysqli_free_result($resultado);
 				$conexion -> close();
 			}
-			echo '<br>';
+			/*echo '<br>';
 			echo 'Numero de menu: '. $productoID ."<br>";
-			echo 'Cantidad : '. $cantidadProd . "<br>";
+			echo 'Cantidad : '. $cantidadProd . "<br>";*/
 			
 			
 		?>
+		</div>
 
-
-		<div class="caja principal">
+		<div class="confirmaPedido">
 					<!-- DESCRICOPN PRODUCTO COMPRADO
 						BOTON FINALIZAR(PAGINA PEDIDOFINAL)  O REGRESAR(mENU O PROMOCIONES) 
 					-->					
-				<a href="../index.html"><button>Regresar</button></a>
 				<form action="pedido_final.php" method="POST">
 					<p>Confirme numero de Menu: <input type="number" name="numOrden" max="10"></p> 
 					<p>Confirme cantidad: <input type="number" name="cantidad" max="50"></p> 
-					<p>Confirme email: </p><input type="text" name="correo"> 
+					<p>Confirme email: <input type="text" name="correo"> </p>
 					<p></p><input type="submit" value="Confirmar" name="confirmar">
 				</form>
+				
+				<a href="../index.html"><button>Regresar</button></a>
+
 
 		</div>
 		
