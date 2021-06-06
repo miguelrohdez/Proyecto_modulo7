@@ -44,8 +44,8 @@ update cliente
 	where NoCliente = sp_NoCliente
 ;
 
-CREATE PROCEDURE SP_BorrarCliente(in sp_idCliente INT(11))
-    delete from cliente where cliente_correo = sp_idCliente;
+CREATE PROCEDURE SP_BorrarCliente(in sp_correo VARCHAR(100))
+    delete from cliente where cliente_correo = sp_correo;
 
 --Hice este compa por si el que esta arriba no te funciona por que a mi no me jalaba jajaja
 /*
