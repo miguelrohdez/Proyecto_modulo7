@@ -89,7 +89,6 @@ ul{
 	margin: 1%;
 	font-size: 20px;
 	text-align:end;
-
 }
 
 .menuH {
@@ -97,7 +96,13 @@ ul{
 	margin: 1%;
 	font-size: 20px;
 	text-align:justify;
-
+}
+.confirmaPedido2 {
+	background-color: #202020;
+	padding: 2% 5%;
+	margin: 2%;
+	font-size: 25px;
+	text-align:center;
 }
 
 .espacio5{

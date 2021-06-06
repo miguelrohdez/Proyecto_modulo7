@@ -66,7 +66,7 @@
 				<h1 class="tituloPrincipal">CONFIRMACION DE PEDIDO</h1>
 			</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
-		
+		</div>
 		<div class="pedidoActual">
 		<?php
 			require("datos_con.php");

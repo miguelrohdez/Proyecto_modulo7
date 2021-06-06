@@ -9,22 +9,56 @@
     }*/
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ES">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compra Finalizada</title>
+		<meta charset="utf-8">
+		<title>Carrito</title>
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body>
-    <!-- mostrar direccion del cliente, pedido y costo
-            btn finalizar( regresa al menu) -->
-    <?php
-            /****************************************************************** 
-				Se intenta listar los datos del usuario para almacenarlo en tabla pedido.
-			*/
+	<div class="container-menu">
+			<nav class="nav-main">
+				<a class="logoNav" href="../index.php">
+					<img id="logo" src="../img/logoFinal.png" alt="Imagen Logo">
+				</a>
+				<ul class="nav-menu">
+					<li>
+						<a href="../index.php">Inicio</a>
+					</li>
+					<li>
+						<a href="#">Menu</a>
+					</li>
+					<li>
+						<a href="#">Promociones</a>
+					</li>
+					<li>
+						<a href="#">Carrito</a>
+					</li>
+					<li>
+						<a href="#">Contacto</a>
+					</li>
+				</ul>
+				<ul class="nav-sesion">
+					<li>
+						<a href="#login.html"><button>Entrar</button></a>
+					</li>
+					<li>
+						<a href="#./registro.html"><button>Registrarse</button></a>
+					</li>
+				</ul>
+			</nav>
+			<hr>
+		</div>	
+	<div class="container">
+		<header>
+			<h1 class="tituloPrincipal">Informacion de Pedido</h1>
+		</header>		
+	</div>
+    <div class="pedidoActual">
+	<?php
+            /**Se intenta listar los datos del usuario para almacenarlo en tabla pedido.*/
             $cantidadProd = $_POST['cantidad'];
             $productoID = $_POST['numOrden'];
             $usuario = $_POST['correo'];
@@ -41,10 +75,11 @@
 				$consulta2 = "SELECT NoCliente FROM cliente WHERE cliente_correo = '$usuario' ";
 				$aux = $conexion2 -> query($consulta2);
 				$row = mysqli_fetch_assoc($aux);
-                $idCliente = $row['NoCliente'];
+                $idCliente = $row['NoCliente']; //Se almacena id del Cliente
 
 				$conexion2 -> close();
 			}
+			
 			////#################################################################################################////
 			// Se lista el precio del producto seleccionado
 			$conexion3 = new mysqli($db_host, $db_admin,$db_pass,$db_data);
@@ -56,12 +91,13 @@
                 $aux2 = $conexion3 -> query($consulta3);
                 $row2 = mysqli_fetch_assoc($aux2);
 				
-                $precio = $row2['menu_precio'];
+                $precio = $row2['menu_precio']; //Se almacena el precio del producto
                 $total = $precio * $cantidadProd;
 				$conexion3 -> close();
 			}
-        	////#################################################################################################////
-			// Se intenta insertar en tabla pedido detalle
+        	
+			////#################################################################################################////
+			// Se insertan datos en tabla pedido_detalle
 			$conexion4 = new mysqli($db_host, $db_admin,$db_pass,$db_data);
             //$idCliente = 1;
 
@@ -87,12 +123,6 @@
 			}else{
 				echo 'Conexion exitosa';
 				$conexion5 -> set_charset("utf8");
-				/*$consulta5 = " SELECT p.NoPedido, p.pedido_fecha, p.cantidad, p.precioTotal,
-                                     c.cliente_nombre, c.cliente_paterno, c.cliente_direccion,
-                                     m.menu_nombre, m.menu_precio, m.menu_tipo, m.menu_descripcion
-                               FROM cliente c NATURAL JOIN menu m NATURAL JOIN pedidoDetalle p 
-                               WHERE p.NoPedido = '$productoID' AND c.cliente_correo = '$usuario'";
-                */
                 $consultaPedido = " SELECT NoPedido, pedido_fecha, cantidad, precioTotal
                                     FROM pedidoDetalle WHERE cliente = '$idCliente' AND codigo = '$productoID'";
                 $consultaCliente = " SELECT cliente_nombre, cliente_apaterno, cliente_direccion
@@ -123,19 +153,16 @@
                 mysqli_free_result($res3);
 				$conexion5 -> close();
 			}
-			
-
     ?>
+	</div>
 
-    <div class="caja principal">
+    <div class="confirmaPedido2">
 					<!-- DESCRICOPN PRODUCTO COMPRADO
 						BOTON FINALIZAR(PAGINA PEDIDOFINAL)  O REGRESAR(mENU O PROMOCIONES) 
 					-->					
                 <p>Su pedido se ha realizado con exito. Espere la llegada del repartidor</p>
-				<a href="../index.php"><button>Finalizar</button></a>
-				
-
-		</div>
+				<a href="../index.php"><button> Finalizar </button></a>
+	</div>
 
 
 </body>
