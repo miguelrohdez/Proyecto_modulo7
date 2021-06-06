@@ -4,9 +4,9 @@
 -- ***************************************************************
 
 
-CREATE DATABASE lalos_buger;
+CREATE DATABASE lalos_burger;
 
-USE lalos_buger;
+USE lalos_burger;
 
 CREATE TABLE cliente(
     NoCliente INT(11) AUTO_INCREMENT,

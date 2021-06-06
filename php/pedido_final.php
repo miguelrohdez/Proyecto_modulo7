@@ -132,7 +132,7 @@
 						BOTON FINALIZAR(PAGINA PEDIDOFINAL)  O REGRESAR(mENU O PROMOCIONES) 
 					-->					
                 <p>Su pedido se ha realizado con exito. Espere la llegada del repartidor</p>
-				<a href="../index.html"><button>Finalizar</button></a>
+				<a href="../index.php"><button>Finalizar</button></a>
 				
 
 		</div>
