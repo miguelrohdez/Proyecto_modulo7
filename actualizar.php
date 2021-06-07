@@ -15,12 +15,9 @@
             }else{
                 include("nav_login.html");
             }
-            $correo1=  $_GET["var"];
             require("./php/datos_con.php");
-
             $conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data,$db_port);
             $conexion -> set_charset("utf8");
-            
             //$consul = $conexion -> query("SELECT * FROM cliente WHERE cliente_correo = '".$correo1."'");
             $consul = $conexion -> query("SELECT * FROM cliente WHERE NoCliente = '".$_SESSION['id']."'");
             $fila = mysqli_fetch_assoc($consul);
@@ -31,7 +28,6 @@
 		</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
 		<div class="caja principal">
-        
             <form action="btn_actualizar.php" method="POST">
             <table class="t_registro">
                 <tr>
@@ -62,10 +58,8 @@
                     <input type="hidden" type="text" name="id" value=<?php echo $fila['NoCliente'];?>>
                     <td class="btn_registro"><input  type="submit" name="btn_actualizar" value="Actualizar"></td>
                 </tr>
-
             </table>
         </form>
-		
         </div>
         <div class="clear"></div>
         </div>

@@ -1,14 +1,3 @@
-<?php
-   /* session_start();    
-    $varSesion = $_SESSION['usuario'];
-
-
-    if($varSesion == null || $varSesion== ""){
-        echo "No tiene acceso a esta pagina";
-        die();
-    }*/
-?>
-
 <!DOCTYPE html>
 <html lang="es-ES">
 	<head>
@@ -20,46 +9,13 @@
 	<body>
 		<!-- Aqui  empieza la barra de menus y logo -->
 		<?php
-			//session_start();
-			//if(!isset($_SESSION["usuario"])){
-			//	header("location:../login.html");
-			//}
+			session_start();
+            if (!isset($_SESSION["usuario"])) {
+                include("nav_nologin.html");
+            }else{
+                include("nav_login.html");
+            }
 		?>
-		
-		<div class="container-menu">
-			<nav class="nav-main">
-				<a class="logoNav" href="../index.php">
-					<img id="logo" src="../img/logoFinal.png" alt="Imagen Logo">
-				</a>
-				<ul class="nav-menu">
-					<li>
-						<a href="../index.php">Inicio</a>
-					</li>
-					<li>
-						<a href="#">Menu</a>
-					</li>
-					<li>
-						<a href="#">Promociones</a>
-					</li>
-					<li>
-						<a href="#">Carrito</a>
-					</li>
-					<li>
-						<a href="#">Contacto</a>
-					</li>
-				</ul>
-				<ul class="nav-sesion">
-					<li>
-						<a href="#login.html"><button>Entrar</button></a>
-					</li>
-					<li>
-						<a href="#./registro.html"><button>Registrarse</button></a>
-					</li>
-				</ul>
-			</nav>
-			<hr>
-		</div>	
-
 		<!-- Aqui  empieza la caja principal -->
 		<div class="container">
 			<header>
@@ -71,37 +27,28 @@
 		<?php
 			require("datos_con.php");
 			require("listarMenu.php");
-
 			$productoID =   $_POST["orden"];
 			$cantidadProd = $_POST["cantidad"];
 			//$usuarioID = $_SESSION['usuario'];
-
 			$conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data);
-
 			if ($conexion -> connect_errno) {
 				echo "Fallo la conexion ".$conexion -> connect_errno;
 			}else{
 				//echo 'Conexion exitosa';
 				$conexion -> set_charset("utf8");
 				$consulta = "SELECT * FROM menu WHERE  codigo = '$productoID' ";
-
 				$resultado = mysqli_query($conexion, $consulta);
-
 				while($fila = mysqli_fetch_array($resultado)){
 					listarMenu($fila);
 				}
-
 				mysqli_free_result($resultado);
 				$conexion -> close();
 			}
 			/*echo '<br>';
 			echo 'Numero de menu: '. $productoID ."<br>";
 			echo 'Cantidad : '. $cantidadProd . "<br>";*/
-			
-			
 		?>
 		</div>
-
 		<div class="confirmaPedido">
 					<!-- DESCRICOPN PRODUCTO COMPRADO
 						BOTON FINALIZAR(PAGINA PEDIDOFINAL)  O REGRESAR(mENU O PROMOCIONES) 
@@ -112,13 +59,8 @@
 					<p>Confirme email: <input type="text" name="correo"> </p>
 					<p></p><input type="submit" value="Confirmar" name="confirmar">
 				</form>
-				
 				<a href="../index.html"><button>Regresar</button></a>
-
-
 		</div>
-		
-		
 		<div class="clear"></div>
 		</div>
 		<footer>

@@ -18,39 +18,16 @@
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body>
-	<div class="container-menu">
-			<nav class="nav-main">
-				<a class="logoNav" href="../index.php">
-					<img id="logo" src="../img/logoFinal.png" alt="Imagen Logo">
-				</a>
-				<ul class="nav-menu">
-					<li>
-						<a href="../index.php">Inicio</a>
-					</li>
-					<li>
-						<a href="#">Menu</a>
-					</li>
-					<li>
-						<a href="#">Promociones</a>
-					</li>
-					<li>
-						<a href="#">Carrito</a>
-					</li>
-					<li>
-						<a href="#">Contacto</a>
-					</li>
-				</ul>
-				<ul class="nav-sesion">
-					<li>
-						<a href="#login.html"><button>Entrar</button></a>
-					</li>
-					<li>
-						<a href="#./registro.html"><button>Registrarse</button></a>
-					</li>
-				</ul>
-			</nav>
-			<hr>
-		</div>	
+<?php
+		session_start();
+		if(!isset($_SESSION["usuario"])){
+			include("nav_nologin.html");
+			echo "<h1 class = 'tituloPrincipal'>No tiene acceso a esta pagina</h1>";
+			die();
+		}else{
+			include("nav_login.html");
+		}
+	?>
 	<div class="container">
 		<header>
 			<h1 class="tituloPrincipal">Informacion de Pedido</h1>

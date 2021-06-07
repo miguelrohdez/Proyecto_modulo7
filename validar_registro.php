@@ -15,7 +15,6 @@
 		</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
 		<div class="caja principal">
-
 		<?php 
 			require("./php/datos_con.php");
 			$nombre = $_POST['txt_nombre'];
@@ -67,10 +66,8 @@
                 }
 				$stmt->free_result();	
 				$conexion -> close();
-
 			}
 		?>
-		
         </div>
 		<div class="clear"></div>
 	</div>

@@ -1,46 +1,23 @@
-<?php
-   /* session_start();    
-    $varSesion = $_SESSION['usuario'];
-
-
-    if($varSesion == null || $varSesion== ""){
-        echo "No tiene acceso a esta pagina";
-        die();
-    }*/
-?>
-
 <!DOCTYPE html>
 <html lang="es-ES">
 	<head>
 		<meta charset="utf-8">
-		<title>Menu</title>
+		<title>Promociones</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	</head>
     <body>
     <!-- Aqui  empieza la barra de menus y logo -->
-		<div class="container-menu">
-			<nav class="nav-main">
-				<a class="logoNav" href="index.php">
-					<img id="logo" src="img/logoFinal.png" alt="Imagen Logo">
-				</a>
-				<ul class="nav-menu">
-					<li>
-						<a href="index.php">Volver</a>
-					</li>
-				</ul>
-				<ul class="nav-sesion">
-					<li>
-						<a href="#login.html"><button>Entrar</button></a>
-					</li>
-					<li>
-						<a href="#registro.html"><button>Registrarse</button></a>
-					</li>
-				</ul>
-			</nav>
-			<hr>
-		</div>
-			
+    <?php
+		session_start();
+		if(!isset($_SESSION["usuario"])){
+			include("nav_nologin.html");
+			echo "<h1 class = 'tituloPrincipal'>No tiene acceso a esta pagina</h1>";
+			die();
+		}else{
+			include("nav_login.html");
+		}
+	?>
 		<!-- Aqui  empieza la caja principal -->
 		<div class="container">
 			<header>

@@ -5,8 +5,6 @@
 		<title>Lalo's Registro</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-		
-		
 	</head>
 	<body>
 		<!-- Aqui  empieza la barra de menus y logo -->
@@ -24,7 +22,6 @@
 				include("formulario_registro.html");
 			?>
 		</div>
-				
 		<div class="clear"></div>
 		</div>
 		<footer>

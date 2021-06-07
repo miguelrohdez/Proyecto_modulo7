@@ -75,7 +75,7 @@
 									<td>Fecha de nacimiento </td><td>".$fecha."</td>
 								</tr>
 								<tr>
-									<td class='btn_registro'><a href='./actualizar.php?var=".$correo."'><button>Actualizar perfil</button></a></td>
+									<td class='btn_registro'><a href='./actualizar.php'><button>Actualizar perfil</button></a></td>
 									<td class='btn_registro'><a href='advertencia_eliminar.php'><button>Eliminar perfil</button></a></td>
 								</tr>
 							</table>";

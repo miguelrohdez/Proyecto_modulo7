@@ -9,7 +9,6 @@
 		
 	</head>
 	<body>
-	
 		<!-- Aqui  empieza la barra de menus y logo -->
 		<?php 
 				if (!isset($_SESSION["usuario"])) {
@@ -18,7 +17,6 @@
 					include("nav_login.html");
 				}
 		?>
-	
 	<!-- Aqui  empieza la caja principal -->
 	<div class="container">
 		<header>
@@ -71,10 +69,7 @@
 							</table>";
 				}
 			?>
-			
 		</div>
-		
-		
 		<div class="clear"></div>
 		</div>
 		<footer>

@@ -24,7 +24,6 @@
                 
                 $conexion -> close();
             }
-            
     ?>
 </body>
 </html>

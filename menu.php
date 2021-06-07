@@ -1,13 +1,4 @@
-<?php
-   /* session_start();    
-    $varSesion = $_SESSION['usuario'];
 
-
-    if($varSesion == null || $varSesion== ""){
-        echo "No tiene acceso a esta pagina";
-        die();
-    }*/
-?>
 
 <!DOCTYPE html>
 <html lang="es-ES">
@@ -19,34 +10,23 @@
 	</head>
     <body>
     <!-- Aqui  empieza la barra de menus y logo -->
-		<div class="container-menu">
-			<nav class="nav-main">
-				<a class="logoNav" href="index.php">
-					<img id="logo" src="img/logoFinal.png" alt="Imagen Logo">
-				</a>
-				<ul class="nav-menu">
-					<li>
-						<a href="index.php">volver</a>
-					</li>
-				</ul>
-				<ul class="nav-sesion">
-					<li>
-						<a href="#login.html"><button>Entrar</button></a>
-					</li>
-					<li>
-						<a href="#registro.html"><button>Registrarse</button></a>
-					</li>
-				</ul>
-			</nav>
-			<hr>
-		</div>
-			
+	<?php
+		session_start();
+		if(!isset($_SESSION["usuario"])){
+			include("nav_nologin.html");
+			echo "<h1 class = 'tituloPrincipal'>No tiene acceso a esta pagina</h1>";
+			die();
+		}else{
+			include("nav_login.html");
+		}
+	?>
 		<!-- Aqui  empieza la caja principal -->
 		<div class="container">
 			<header>
 				<h1 class="tituloPrincipal">MENU DE HAMBURGUESAS Y BEBIDAS</h1>
 			</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
+		<div class="caja principal">
 		<div class="pedidoActual">
 				<!-- COMBOS
 					IMAGEN
@@ -56,11 +36,12 @@
             <form method="POST" name = "pedido" Onsubmit = "return Validation(this)" action="./php/carrito.php">
 
             	<?php
-            		$link = mysqli_connect("localhost", "root", "usbw");
-					mysqli_select_db($link, "lalos_burger");
+				 require("./php/datos_con.php");
+            		$link = mysqli_connect($db_host, $db_admin, $db_pass);
+					mysqli_select_db($link, $db_data);
+					//Este es si hacer la conxion con POO
 					$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las 	tildes correctamente
 					$result = mysqli_query($link, "SELECT * FROM menu");
-	
 					echo "<table class='menuH'>";
 					$num = 0;
 					$ban = 0;
@@ -81,25 +62,18 @@
 							echo "</tr>";
 							$ban = 0;
 						}
-
 					}
-					 echo "</table>";
-
+					echo "</table>";
 					mysqli_free_result($result);
 					mysqli_close($link);
-		            
             	?>
-
                 <input type="number" name="cantidad" min="1" max="50" step="1"  required="required">
-
                 <input type="submit" value="Confirmar Cantidad" name="confirmar">
             </form>
-                
-		</div>
-		
-		
+        	</div>
+        </div>
 		<div class="clear"></div>
-		</div>
+    </div>
 		<footer>
 			<h1 class="text-footer"> Ⓒ 2021 Lalo's Burger ALGUNOS PRODUCTOS ESTAN SUJETOS A DISPONIBILIDAD</h1>
 		</footer>
