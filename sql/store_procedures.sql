@@ -18,15 +18,6 @@ CREATE PROCEDURE SP_AltaCliente (
 	cliente_correo,cliente_contrasenia,cliente_telefono, cliente_fechaNac)
 	VALUES (nombre,aPaterno,aMaterno,direccion,correo,contrasenia,telefono,fechaNac)
 
--- Creacion de PS para llenar tabla pedidos
--- CURDATE()
-CREATE PROCEDURE lb_addPedido ( IN client INT(11),
-                                IN code INT(11),
-                                IN cant INT(11),
-                                IN total FLOAT ) 
-    INSERT INTO pedidoDetalle( NoPedido, pedido_fecha, cliente, codigo, cantidad, precioTotal)
-    VALUES ( "", CURDATE(), client, code, cant, total);
-
 --Actualizar los datos del usuario
 CREATE PROCEDURE SP_ActualizarCliente(
 	in sp_NoCliente int(11),
@@ -36,7 +27,7 @@ CREATE PROCEDURE SP_ActualizarCliente(
 	in sp_direccion VARCHAR(200),
     in sp_correo VARCHAR(100),
     in sp_contrasenia VARCHAR(255),
-	in sp_telefono INT(10),
+	in sp_telefono VARCHAR(15),
 	in sp_fechaNac DATE)
 update cliente
 	set

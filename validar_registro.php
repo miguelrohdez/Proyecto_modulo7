@@ -53,11 +53,10 @@
                 echo "Fallo la conexion ".$conexion -> connect_errno;
             }else{
                 $conexion -> set_charset("utf8");
-                $contrasenia_enc = password_hash($contrasenia, PASSWORD_DEFAULT);
+                //$contrasenia_enc = crypt($contrasenia);
                 $consulta = "call SP_AltaCliente(?,?,?,?,?,?,?,?)";
                 $stmt = $conexion->prepare($consulta);
-                $stmt->bind_param("ssssssss",$nombre,$apaterno,$amaterno,$direccion,$correo,$contrasenia_enc,$telefono,$fecha);
-				echo gettype($telefono);
+                $stmt->bind_param("ssssssss",$nombre,$apaterno,$amaterno,$direccion,$correo,$contrasenia,$telefono,$fecha);
                 $stmt->execute();	
                 if ($stmt->affected_rows>0) {
 					echo "<h2 class='txt_adventencia'>Se ha registrado correctamente</h2>"; //ir a pagina
