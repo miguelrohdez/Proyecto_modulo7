@@ -56,7 +56,7 @@
                 $contrasenia_enc = password_hash($contrasenia, PASSWORD_DEFAULT);
                 $consulta = "call SP_AltaCliente(?,?,?,?,?,?,?,?)";
                 $stmt = $conexion->prepare($consulta);
-                $stmt->bind_param("ssssssis",$nombre,$apaterno,$amaterno,$direccion,$correo,$contrasenia_enc,$telefono,$fecha);
+                $stmt->bind_param("ssssssss",$nombre,$apaterno,$amaterno,$direccion,$correo,$contrasenia_enc,$telefono,$fecha);
 				echo gettype($telefono);
                 $stmt->execute();	
                 if ($stmt->affected_rows>0) {

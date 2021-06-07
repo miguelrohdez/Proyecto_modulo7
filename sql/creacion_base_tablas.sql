@@ -16,7 +16,7 @@ CREATE TABLE cliente(
     cliente_direccion VARCHAR(200),
     cliente_correo VARCHAR(100) NOT NULL,
     cliente_contrasenia VARCHAR(255),
-    cliente_telefono INT(15) NOT NULL,
+    cliente_telefono VARCHAR(15) NOT NULL,
     cliente_fechaNac DATE NOT NULL,
     PRIMARY KEY(NoCliente)
     );

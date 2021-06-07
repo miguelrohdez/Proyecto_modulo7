@@ -11,7 +11,7 @@ CREATE PROCEDURE SP_AltaCliente (
 	IN direccion VARCHAR(200),
 	IN correo VARCHAR(100),
     IN contrasenia VARCHAR(255),
-	IN telefono INT(15),
+	IN telefono VARCHAR(15),
 	IN fechaNac DATE)
 	
 	INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,cliente_direccion,
