@@ -39,8 +39,9 @@ CREATE TABLE pedidoDetalle(
     cantidad INT (11) NOT NULL,
     precioTotal FLOAT NOT NULL,
     PRIMARY KEY (NoPedido),
-    FOREIGN KEY (cliente) REFERENCES cliente(NoCliente),
-    FOREIGN KEY (codigo) REFERENCES menu(codigo)
+    FOREIGN KEY (cliente) REFERENCES cliente(NoCliente) 
+        ON DELETE CASCADE,
+    FOREIGN KEY (codigo) REFERENCES menu(codigo) 
 );
 --Carlos
 CREATE TABLE contacto(
