@@ -42,8 +42,10 @@ update cliente
 	where NoCliente = sp_NoCliente
 ;
 
-CREATE PROCEDURE SP_BorrarCliente(in sp_idCliente INT(11))
-    delete from cliente where NoCliente = sp_NoCliente;
+CREATE PROCEDURE SP_BorrarCliente(
+	in sp_NoCliente INT(11)
+    delete from cliente where NoCliente = sp_NoCliente
+;
 
 -- Creacion de PS para llenar tabla pedidos
 -- CURDATE()

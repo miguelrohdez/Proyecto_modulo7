@@ -38,7 +38,7 @@
 					echo "<h2>Tu sesion a expirado</h2>";
 				}else{
 					echo "<h2>Datos de perfil</h2>";
-					echo $_SESSION["id"];
+					//echo $_SESSION["id"];
 					require("./php/datos_con.php");
 					$conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data,$db_port);
 					if ($conexion -> connect_errno) {

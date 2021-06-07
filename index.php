@@ -40,8 +40,6 @@
 					$_SESSION["id"]=$idUsuario;
 					//header("location:carrito.php"); NO SE A QUE PAGINA MARDAR AL CLIENTE REGISTRADO
 					
-				}else{
-					
 				}
 				$conexion -> close();
 			}            

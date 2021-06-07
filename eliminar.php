@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>Eliminar</title>
 </head>
 <body>
@@ -22,13 +23,15 @@
 		<div class="caja principal">
 		<?php 
             require("./php/datos_con.php");
-            $idCliente = $_SESSION["id"];
             $conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data,$db_port);
             if ($conexion -> connect_errno) {
                 echo "Fallo la conexion ".$conexion -> connect_errno;
             }else{
+                
                 $conexion -> set_charset("utf8");
+                //$conexion -> query("Select * from cliente where NoCliente =". $idCliente);
                 $consulta = "call SP_BorrarCliente(?)";
+                $idCliente = $_SESSION["id"];
                 $stmt = $conexion->prepare($consulta);
                 $stmt->bind_param("i", $idCliente);
                 $stmt->execute();	
