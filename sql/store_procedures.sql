@@ -9,17 +9,14 @@ CREATE PROCEDURE SP_AltaCliente (
 	IN aPaterno VARCHAR(100),
 	IN aMaterno VARCHAR(100),
 	IN direccion VARCHAR(200),
-	IN telefono VARCHAR(15),
 	IN correo VARCHAR(100),
     IN contrasenia VARCHAR(255),
+	IN telefono INT(15),
 	IN fechaNac DATE)
 	
-	INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,
-                cliente_direccion,cliente_correo,cliente_contrasenia,
-                cliente_telefono, cliente_fechaNac) 
-        VALUES (nombre, aPaterno, aMaterno, direccion, telefono, correo,contrasenia, fechaNac)
-;
-
+	INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,cliente_direccion,
+	cliente_correo,cliente_contrasenia,cliente_telefono, cliente_fechaNac)
+	VALUES (nombre,aPaterno,aMaterno,direccion,correo,contrasenia,telefono,fechaNac)
 -- Creacion de PS para llenar tabla pedidos
 -- CURDATE()
 CREATE PROCEDURE lb_addPedido ( IN client INT(11),
@@ -28,9 +25,7 @@ CREATE PROCEDURE lb_addPedido ( IN client INT(11),
                                 IN total FLOAT ) 
     INSERT INTO pedidoDetalle( NoPedido, pedido_fecha, cliente, codigo, cantidad, precioTotal)
     VALUES ( "", CURDATE(), client, code, cant, total);
-=======
-=======
->>>>>>> master
+
 --Actualizar los datos del usuario
 CREATE PROCEDURE SP_ActualizarCliente(
 	in sp_NoCliente int(11),
@@ -40,7 +35,7 @@ CREATE PROCEDURE SP_ActualizarCliente(
 	in sp_direccion VARCHAR(200),
     in sp_correo VARCHAR(100),
     in sp_contrasenia VARCHAR(255),
-	in sp_telefono VARCHAR(15),
+	in sp_telefono INT(10),
 	in sp_fechaNac DATE)
 update cliente
 	set
@@ -75,9 +70,6 @@ INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,
 	VALUES (sp_nombre, sp_aPaterno, sp_aMaterno, sp_direccion,sp_correo,sp_contrasenia, sp_telefono, sp_fechaNac);
 ;
 */
-<<<<<<< HEAD
->>>>>>> 3aad1cd00a14be2c744761897211faf103ad7f83
-=======
 
 -- Creacion de PS para llenar tabla pedidos
 -- CURDATE()
@@ -88,7 +80,7 @@ CREATE PROCEDURE lb_addPedido ( IN client INT(11),
     INSERT INTO pedidoDetalle( NoPedido, pedido_fecha, cliente, codigo, cantidad, precioTotal)
     VALUES ( "", CURDATE(), client, code, cant, total);
 --
->>>>>>> master
+
 
 -- SP para dar de alta un nuevo registro en menu
 CREATE PROCEDURE SP_AltaMenu(

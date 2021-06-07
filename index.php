@@ -12,7 +12,7 @@
 	<!-- Parte que verifica el login -->
 		<?php
 		if (isset($_POST["btn_entrar"]) or !session_start() ) {
-			
+			$_SESSION['error_login'] = FALSE;
 			require("./php/datos_con.php");
 			$usuario =   $_POST["txt_email"];
 			$password = $_POST["txt_contra"];
@@ -21,29 +21,27 @@
 				echo "Fallo la conexion ".$conexion -> connect_errno;
 			}else{
 				$conexion -> set_charset("utf8");
-				$consulta = "SELECT  NoCliente, cliente_nombre FROM cliente WHERE cliente_correo = ? AND cliente_contrasenia = ?";
-				//$consulta ="SELECT  NoCliente, cliente_nombre, cliente_contrasenia FROM cliente WHERE cliente_correo = ";
+				//$consulta = "SELECT  NoCliente, cliente_nombre FROM cliente WHERE cliente_correo = ? AND cliente_contrasenia = ?";
+				$consulta ="SELECT  NoCliente, cliente_nombre, cliente_contrasenia FROM cliente WHERE cliente_correo = ?";
 				$stmt = $conexion->prepare($consulta);
-            	$stmt->bind_param("ss", $usuario, $password);
-				//$stmt->bind_param("s", $usuario);
+            	//$stmt->bind_param("ss", $usuario, $password);
+				$stmt->bind_param("s", $usuario);
             	$stmt->execute();	
-				$stmt->bind_result($idUsuario, $nombre_cliente);
-				//$stmt->bind_result($idUsuario, $nombre_cliente, $contra_enc);
-				/*if (password_verify($password,$contra_enc)) {
-					$correcto = TRUE;
+				//$stmt->bind_result($idUsuario, $nombre_cliente);
+				$stmt->bind_result($idUsuario, $nombre_cliente, $contra_enc);
+				if (password_verify($password,$contra_enc)) {
+					echo "Correcto";
 				}else{
-					$correcto = FALSE;
+					echo "INNCorrecto";
 				}
-				if ($correcto) {
-					# code...
-				}*/
 				if ($stmt->fetch() ) {
 					session_start();
 					$_SESSION["usuario"]=$nombre_cliente;
 					$_SESSION["id"]=$idUsuario;
 					//header("location:carrito.php"); NO SE A QUE PAGINA MARDAR AL CLIENTE REGISTRADO
+					
 				}else{
-					header("index.php"); //Posiblemente agrege una loginErro.html con el mensaje de error
+					
 				}
 				$conexion -> close();
 			}            

@@ -9,35 +9,25 @@
 		
 	</head>
 	<body>
-	<!-- Parte que verifica el login -->
-		
-		<?php
-			session_start();
-			if (!isset($_SESSION["usuario"])) {
-				include("nav_nologin.html");
-			}else{
-				include("nav_login.html");
-			}
+	
+		<!-- Aqui  empieza la barra de menus y logo -->
+		<?php 
+				if (!isset($_SESSION["usuario"])) {
+					include("nav_nologin.html");
+				}else{
+					include("nav_login.html");
+				}
 		?>
 	
 	<!-- Aqui  empieza la caja principal -->
 	<div class="container">
 		<header>
-			<h1 class="tituloPrincipal">Perfil</h1>
+			<h1 class="tituloPrincipal">Bienvenido a Lalo's Burgues</h1>
 		</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
 		<div class="caja principal">
-			
-			<!-- LOGIN
-			CORREO
-					CONTRA
-					BTN INGRESAR (VERIFICAR) Y BTN REGISTRAR (IR A REGISTRAR) -->
-			<?php 
-				if (!isset($_SESSION["usuario"])) {
-					echo "<h2>Vuelve a iniciar sesion</h2>";
-					echo "<h2>Tu sesion a expirado</h2>";
-				}else{
-					echo "<h2>Datos de perfil</h2>";
+		<?php 
+					echo "<h2>Datos a eliminar</h2>";
 					echo $_SESSION["id"];
 					require("./php/datos_con.php");
 					$conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data,$db_port);
@@ -76,16 +66,11 @@
 								</tr>
 								<tr>
 									<td class='btn_registro'><a href='./actualizar.php?var=".$correo."'><button>Actualizar perfil</button></a></td>
-									<td class='btn_registro'><a href='advertencia_eliminar.php'><button>Eliminar perfil</button></a></td>
+									<td class='btn_registro'><a href='./eliminar.php'><button>Eliminar perfil</button></a></td>
 								</tr>
 							</table>";
-
-
-						
 				}
-				
 			?>
-			
 			
 		</div>
 		

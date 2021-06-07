@@ -8,7 +8,12 @@
 </head>
 <body>
 <?php         
-        include("nav_login.html");
+        session_start();
+        if (!isset($_SESSION["usuario"])) {
+            include("nav_nologin.html");
+        }else{
+            include("nav_login.html");
+        }
     ?>
     <div class="container">
 		<header>
@@ -18,7 +23,7 @@
 		<div class="caja principal">
 
 		<?php 
-       
+            require("./php/datos_con.php");
             $idCliente = $_SESSION["id"];
             $conexion = new mysqli($db_host, $db_admin,$db_pass,$db_data,$db_port);
             if ($conexion -> connect_errno) {
@@ -31,11 +36,13 @@
                 $stmt->execute();	
                 //$stmt->bind_result($idUsuario, $nombre_cliente);
                 if ($stmt->affected_rows>0) {
-                    echo "Correcto";
+                    session_start();
+                    session_destroy();
+                    header("location:eliminacion_correcta.html");
                 }else{
-                    echo "Hubo error";
+                    echo "<h2>Hubo un error</h2>";
                 }
-			
+            }
 		?>
 
 		

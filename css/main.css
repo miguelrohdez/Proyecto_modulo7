@@ -174,16 +174,22 @@ ul{
 }
 .t_registro{
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 8px;
 	color: black;
-	border-spacing: 20px;
+	border-spacing: 15px;
     border-collapse: separate;
+}
+
+.t_registro #btn_ingresar{
+	text-align: center;
 }
 
 .btn_registro{
 	padding-top: 3%;
 	text-align: center;
 }
+
+
 #img_index{
 	width: 45%;
 	margin-top: 3%;
@@ -193,4 +199,10 @@ h2 {
 	color: black;
 	font-size: 1.5em;
 	text-align: center;
+}
+
+.txt_adventencia{
+	text-align: center;
+	text-decoration-style: solid;
+	color: rgb(190, 3, 3);
 }

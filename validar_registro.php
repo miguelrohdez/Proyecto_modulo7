@@ -17,7 +17,7 @@
 		<div class="caja principal">
 
 		<?php 
-       
+			require("./php/datos_con.php");
 			$nombre = $_POST['txt_nombre'];
 			$apaterno = $_POST['txt_apaterno'];
 			$amaterno = $_POST['txt_amaterno'];
@@ -26,7 +26,6 @@
 			$correo = $_POST['txt_email'];
 			$contrasenia = $_POST['txt_pass'];
 			$fecha = $_POST['txt_fecnac'];
-            echo "<h2>Se registraron los siguientes datos</h2>";
             echo "<table class='t_registro'>
 								<tr>
 									<td>Nombre </td><td>".$nombre."</td>
@@ -41,10 +40,10 @@
 									<td>Dirección </td><td>".$direccion."</td>
 								</tr>
 								<tr>
-									<td>Telefono </td><td>".$telefono."</td>
+									<td>E-mail </td><td>".$correo."</td>
 								</tr>
 								<tr>
-									<td>E-mail </td><td>".$correo."</td>
+									<td>Telefono </td><td>".$telefono."</td>
 								</tr>
 								<tr>
 									<td>Fecha de nacimiento </td><td>".$fecha."</td>
@@ -58,17 +57,19 @@
                 $contrasenia_enc = password_hash($contrasenia, PASSWORD_DEFAULT);
                 $consulta = "call SP_AltaCliente(?,?,?,?,?,?,?,?)";
                 $stmt = $conexion->prepare($consulta);
-                $stmt->bind_param("ssssisss", $nombre, $apaterno, $amaterno,$direccion,$telefono,$correo,$contrasenia_enc,$fecha);
+                $stmt->bind_param("ssssssis",$nombre,$apaterno,$amaterno,$direccion,$correo,$contrasenia_enc,$telefono,$fecha);
+				echo gettype($telefono);
                 $stmt->execute();	
-                //$stmt->bind_result($idUsuario, $nombre_cliente);
                 if ($stmt->affected_rows>0) {
-                    echo "Correcto";
+					echo "<h2 class='txt_adventencia'>Se ha registrado correctamente</h2>"; //ir a pagina
                 }else{
-                    echo "Hubo error";
+					echo "Hubo error";
                 }
-			
-		?>
+				$stmt->free_result();	
+				$conexion -> close();
 
+			}
+		?>
 		
         </div>
 		<div class="clear"></div>
