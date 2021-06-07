@@ -55,46 +55,41 @@
 			<!--	Se inicia form, para enviar datos de pedido -->
             <form method="POST" name = "pedido" Onsubmit = "return Validation(this)" action="./php/carrito.php">
 
+            	<?php
+            		$link = mysqli_connect("localhost", "root", "usbw");
+					mysqli_select_db($link, "lalos_burger");
+					$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las 	tildes correctamente
+					$result = mysqli_query($link, "SELECT * FROM menu");
+	
+					echo "<table class='menuH'>";
+					$num = 0;
+					$ban = 0;
+					while ($fila = mysqli_fetch_array($result)) {
+						# code...
+						$num = $num + 1;
+						$ban = $ban + 1;
+						if ($ban == 1) {
+							echo "<tr>";
+						}
+                    		echo "<td>";
+                        		echo "<p> ".$fila['menu_descripcion']." </p>";
+                        		echo "<input type='radio' name='orden' value='".$num."' id='o".$num."'>";
+                        		echo "<label for='o".$num."'>Orden '".$num."'</label><br>";
+                        		echo "<img src= ".$fila['menu_imagen']." width='100px' >";
+                    		echo "</td>";
+                    	if ($ban == 3) {
+							echo "</tr>";
+							$ban = 0;
+						}
 
-                <table class="menuH">
-                <tr>
-                    <td>
-                        <p> Hamburguesa sencilla </p> 
-                        <img src="https://i.pinimg.com/originals/e7/3a/bb/e73abb25b368507a67883a26e15be262.jpg" width="100px">                    
-                        <input type="radio" name="orden" value="1" id="o1">
-                        <label for="o1">Orden 1</label><br>
-                    </td>
-                    <td>
-                        <p>Hamburguesa con queso</p>                    
-                        <input type="radio" name="orden" value="2" id="o2">
-                        <label for="o2">Orden 2</label><br>
-                    </td>
-                    <td>
-                        <p>Hamburguesa doble queso y papas</p>                    
-                        <input type="radio" name="orden" value="3" id="o3">
-                        <label for="o3">Orden 3</label><br>
-                    </td>
-                </tr><br>
-                <tr>
-                    <td>
-                        <p>Hamburguesa con queso y tosino</p>                    
-                        <input type="radio" name="orden" value="4" id="o4">
-                        <label for="o4">Orden 4</label><br>
-                    </td>
-                    <td>
-                        <p>Hamburguesa con papas</p>                    
-                        <input type="radio" name="orden" value="5" id="o5">
-                        <label for="o5">Orden 5</label><br>
-                    </td>
-                    <td>
-                        <p>Hamburguesa con papas y refresco</p>                    
-                        <input type="radio" name="orden" value="4" id="o6">
-                        <label for="o6">Orden 6</label><br>
-                    </td>
-                </tr>
-                </table>
+					}
+					 echo "</table>";
 
-                <br>
+					mysqli_free_result($result);
+					mysqli_close($link);
+		            
+            	?>
+
                 <input type="number" name="cantidad" min="1" max="50" step="1"  required="required">
 
                 <input type="submit" value="Confirmar Cantidad" name="confirmar">
