@@ -52,6 +52,7 @@
 					$stmt->execute();	
 					$stmt->bind_result($nombre,$apaterno,$amaterno,$direccion,$correo,$telefono,$fecha);
 					$stmt->fetch();
+					$hh = 'Hola';
 					echo "<table class='t_registro'>
 								<tr>
 									<td>Nombre </td><td>".$nombre."</td>
@@ -75,12 +76,15 @@
 									<td>Fecha de nacimiento </td><td>".$fecha."</td>
 								</tr>
 								<tr>
-									<td class='btn_registro'><a href='./actualizar.php'><button>Actualizar perfil</button></a></td>
+									<td class='btn_registro'><a href='./actualizar.php?var=".$correo."'><button>Actualizar perfil</button></a></td>
 									<td class='btn_registro'><a href='./eliminar.php'><button>Eliminar perfil</button></a></td>
 								</tr>
 							</table>";
-				
+
+
+						
 				}
+				
 			?>
 			
 			

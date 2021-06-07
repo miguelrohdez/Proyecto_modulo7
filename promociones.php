@@ -26,7 +26,7 @@
 				</a>
 				<ul class="nav-menu">
 					<li>
-						<a href="index.php">volver</a>
+						<a href="index.php">Volver</a>
 					</li>
 				</ul>
 				<ul class="nav-sesion">
@@ -59,8 +59,7 @@
                 <table class="menuH">
                 <tr>
                     <td>
-                        <p> Hamburguesa sencilla </p> 
-                        <img src="https://i.pinimg.com/originals/e7/3a/bb/e73abb25b368507a67883a26e15be262.jpg" width="100px">                    
+                        <p> Hamburguesa sencilla </p>                    
                         <input type="radio" name="orden" value="1" id="o1">
                         <label for="o1">Orden 1</label><br>
                     </td>
