@@ -17,6 +17,7 @@ CREATE PROCEDURE SP_AltaCliente (
 	INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,cliente_direccion,
 	cliente_correo,cliente_contrasenia,cliente_telefono, cliente_fechaNac)
 	VALUES (nombre,aPaterno,aMaterno,direccion,correo,contrasenia,telefono,fechaNac)
+
 -- Creacion de PS para llenar tabla pedidos
 -- CURDATE()
 CREATE PROCEDURE lb_addPedido ( IN client INT(11),
@@ -53,24 +54,6 @@ update cliente
 CREATE PROCEDURE SP_BorrarCliente(in sp_idCliente INT(11))
     delete from cliente where NoCliente = sp_NoCliente;
 
---Hice este compa por si el que esta arriba no te funciona por que a mi no me jalaba jajaja
-/*
-CREATE PROCEDURE SP_AltaCliente(
-	in sp_nombre VARCHAR(100),
-	in sp_aPaterno VARCHAR(100),
-	in sp_aMaterno VARCHAR(100),
-	in sp_direccion VARCHAR(200),
-    in sp_correo VARCHAR(100),
-    in sp_contrasenia VARCHAR(255),
-	in sp_telefono VARCHAR(15),
-	in sp_fechaNac DATE)
-INSERT INTO cliente(cliente_nombre,cliente_apaterno,cliente_amaterno,
-                cliente_direccion,cliente_correo,cliente_contrasenia,
-                cliente_telefono, cliente_fechaNac) 
-	VALUES (sp_nombre, sp_aPaterno, sp_aMaterno, sp_direccion,sp_correo,sp_contrasenia, sp_telefono, sp_fechaNac);
-;
-*/
-
 -- Creacion de PS para llenar tabla pedidos
 -- CURDATE()
 CREATE PROCEDURE lb_addPedido ( IN client INT(11),
@@ -79,8 +62,6 @@ CREATE PROCEDURE lb_addPedido ( IN client INT(11),
                                 IN total FLOAT ) 
     INSERT INTO pedidoDetalle( NoPedido, pedido_fecha, cliente, codigo, cantidad, precioTotal)
     VALUES ( "", CURDATE(), client, code, cant, total);
---
-
 
 -- SP para dar de alta un nuevo registro en menu
 CREATE PROCEDURE SP_AltaMenu(
@@ -127,3 +108,11 @@ CREATE PROCEDURE SP_ActualizaMenu(
      menu_imagen = sp_imagen
 	WHERE codigo = sp_codigo
 ;
+
+CREATE PROCEDURE sp_inserta_contacto(
+	IN nombre VARCHAR(100),
+	IN email VARCHAR(100),
+	IN asunto VARCHAR(100),
+	IN mensaje TEXT)
+	INSERT INTO contacto(nombre,email,asunto,mensaje) 
+	VALUES (nombre, email, asunto, mensaje);

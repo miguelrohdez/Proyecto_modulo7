@@ -30,29 +30,6 @@ CREATE TABLE menu(
     menu_imagen VARCHAR(255),
     PRIMARY KEY(codigo)
     );
-/* corregir para hacer una sola 
-CREATE TABLE pedido(
-    NoPedido INT(11) AUTO_INCREMENT,
-    pedido_fecha DATE NOT NULL,
-    cliente INT(11) NOT NULL,
-    PRIMARY KEY (NoPedido),
-    FOREIGN KEY (cliente)
-	    REFERENCES cliente(NoCliente)
-);
-
-CREATE TABLE pedidoDetalle(
-    ticket INT(11) AUTO_INCREMENT,
-    producto INT(11),
-    cantidad INT(5),
-    total DECIMAL(8,2),
-    pedido INT(11),
-    PRIMARY KEY(ticket),
-    FOREIGN KEY(producto)
-        REFERENCES menu(codigo),
-    FOREIGN KEY (pedido)
-        REFERENCES pedido(NoPedido)
-);
-*/
 
 CREATE TABLE pedidoDetalle(
     NoPedido INT(11) AUTO_INCREMENT,
@@ -64,4 +41,12 @@ CREATE TABLE pedidoDetalle(
     PRIMARY KEY (NoPedido),
     FOREIGN KEY (cliente) REFERENCES cliente(NoCliente),
     FOREIGN KEY (codigo) REFERENCES menu(codigo)
+);
+--Carlos
+CREATE TABLE contacto(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nombre VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	asunto VARCHAR(100) NOT NULL,
+	mensaje TEXT NOT NULL
 );
