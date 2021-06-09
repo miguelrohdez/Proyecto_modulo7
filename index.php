@@ -48,18 +48,18 @@
 		} 
 			?>
 		<!-- Aqui  empieza la barra de menus y logo -->
-		<?php 
+		
+	
+	<!-- Aqui  empieza la caja principal -->
+	<div class="container">
+		<header>
+			<?php 
 				if (!isset($_SESSION["usuario"])) {
 					include("nav_nologin.html");
 				}else{
 					include("nav_login.html");
 				}
 		?>
-	
-	<!-- Aqui  empieza la caja principal -->
-	<div class="container">
-		<header>
-			<h1 class="tituloPrincipal">Bienvenido a Lalo's Burgues</h1>
 		</header>	
 		<!-- Aqui  empieza la seccion del formulario o datos a mostrar -->
 		<div class="caja principal">
